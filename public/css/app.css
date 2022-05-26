@@ -27,6 +27,10 @@ body {
     font-size: 12px;
 }
 
+.btn-outline-warning {
+    border-color: #fcca29;
+}
+
 footer {
-    background-color: #1dbe60;
+    background-color: #fcca29;
 }

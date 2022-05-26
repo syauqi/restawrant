@@ -21,16 +21,16 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/4d516d4246.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.2/dist/css/splide.min.css">
 </head>
 
 <body>
 
     <!-- ------------------------ Mobile Header Section ------------------------ -->
 
-    <nav class="navbar navbar-light bg-white d-block d-sm-block d-md-block d-lg-none py-3">
+    <nav class="navbar navbar-light bg-white d-block d-sm-block d-md-block d-lg-none py-3 border-bottom">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">🍣 Restawrant</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -120,13 +120,35 @@
             <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
                 <span class="fs-3 fw-bold">🍣 Restawrant</span>
             </a>
-            <button class="btn btn-outline-success me-2 px-5"
+            <button class="btn btn-outline-warning me-2 px-5"
                 onclick="location.href='http://127.0.0.1:8000/reservation/step-one'" type="button">Buat
                 Reservasi</button>
         </div>
     </header>
 
     <main>
+        <section class="splide my-4" aria-label="Splide Basic HTML Example">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <img src="{{ url('images/splide/hero-slide-1.png') }}" class="d-block w-100"
+                            style="border-radius:8px;">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="{{ url('images/splide/hero-slide-2.png') }}" class="d-block w-100"
+                            style="border-radius:8px;">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="{{ url('images/splide/hero-slide-3.png') }}" class="d-block w-100"
+                            style="border-radius:8px;">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="{{ url('images/splide/hero-slide-4.png') }}" class="d-block w-100"
+                            style="border-radius:8px;">
+                    </li>
+                </ul>
+            </div>
+        </section>
         {{ $slot }}
     </main>
 
@@ -211,6 +233,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.2/dist/js/splide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var splide = new Splide('.splide', {
+                type: 'loop',
+                padding: '80px',
+                gap: '24px',
+                autoplay: true,
+                arrows: false,
+                breakpoints: {
+                    576: {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '8px',
+                        padding: '8px',
+                    },
+                }
+            });
+            splide.mount();
+        });
     </script>
 
 </body>
