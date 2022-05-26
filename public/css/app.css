@@ -21,16 +21,110 @@ body {
     font-family: "Plus Jakarta Display", sans-serif;
 }
 
+header {
+    box-shadow: 11.6px 11.6px 2px rgba(0, 0, 0, 0.005),
+        26.9px 26.9px 4.6px rgba(0, 0, 0, 0.01),
+        48.4px 48.4px 8.3px rgba(0, 0, 0, 0.016),
+        80.3px 80.3px 13.8px rgba(0, 0, 0, 0.022),
+        132.3px 132.3px 22.8px rgba(0, 0, 0, 0.03),
+        231.2px 231.2px 39.8px rgba(0, 0, 0, 0.042),
+        500px 500px 86px rgba(0, 0, 0, 0.07);
+}
+
+.text-grey {
+    color: #808080 !important;
+}
+
+.logo-list {
+    padding: 20px 0;
+    text-align: center;
+}
+.logo-list img {
+    display: inline-block;
+    max-width: 85%;
+    padding: 15px 0;
+    transition: all 0.3s ease-in-out;
+    -webkit-filter: grayscale(100);
+    -moz-filter: grayscale(100);
+    filter: grayscale(100);
+}
+.logo-list img:hover {
+    filter: none;
+}
+
+.img-video {
+    border-radius: 10px;
+}
+
+.shadow-images {
+    box-shadow: 0 2px 25px rgba(197, 178, 9, 0.774);
+}
+
+.overlay-container {
+    position: relative;
+}
+
+.container__overlay {
+    /* Position */
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    /* Take full size */
+    height: 100%;
+    width: 100%;
+
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.play-button {
+    font-size: 48px;
+}
+
+.background-cta {
+    background-image: url("/images/landing-page/cta.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer {
+    background-color: #fcca29;
+}
+
 /* Custom Utility Styles */
 
 .fs-12 {
     font-size: 12px;
 }
 
-.btn-outline-warning {
-    border-color: #fcca29;
+.fw-500 {
+    font-weight: 500;
 }
 
-footer {
-    background-color: #fcca29;
+.bg-warning {
+    background-color: #fcca29 !important;
+}
+
+.text-warning {
+    color: #fcca29 !important;
+}
+
+.btn-outline-warning {
+    border-color: #fcca29 !important;
+}
+
+.btn-outline-warning:hover {
+    color: white;
+}
+
+.rounded-logo {
+    border-radius: 12px;
+}
+
+.section-margin {
+    margin-top: 7rem !important;
+    margin-bottom: 7rem !important;
 }
