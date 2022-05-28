@@ -82,7 +82,7 @@
         <div class="container d-flex flex-wrap fs-15">
             <ul class="nav me-auto">
                 <li class="nav-item me-2">
-                    <a href="#" class="nav-link link-dark text-grey px-2 active" aria-current="page">Beranda</a>
+                    <a href="/" class="nav-link link-dark text-grey px-2 active" aria-current="page">Beranda</a>
                 </li>
                 <li class="nav-item me-2">
                     <a href="#" class="nav-link link-dark text-grey px-2">Tentang Kami</a>
@@ -105,13 +105,11 @@
                     <a class="nav-link link-dark text-grey px-2">|</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://scientistrebellion.com/donate/" class="nav-link link-dark text-grey px-2"
-                        target="_blank">
+                    <a href="#" class="nav-link link-dark text-grey px-2" target="_blank">
                         +6285156162840</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://climateadproject.org/donate/" target="_blank"
-                        class="nav-link link-dark text-grey px-2">+6285156162841</a>
+                    <a href="#" target="_blank" class="nav-link link-dark text-grey px-2">+6285156162841</a>
                 </li>
             </ul>
         </div>
@@ -213,8 +211,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
+
     <!-- Splide JS -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.2/dist/js/splide.min.js"></script>
+
+    <!-- Initializing Splide JS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var splide = new Splide('.splide', {
@@ -235,29 +236,11 @@
             splide.mount();
         });
     </script>
+
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".payment-swiper", {
-            slidesPerView: 1,
-            spaceBetween: 12,
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 12,
-                },
-                1024: {
-                    slidesPerView: 5,
-                    spaceBetween: 12,
-                },
-            },
-        });
-    </script>
+
+    <!-- Initialize Testimonial Swiper -->
     <script>
         var swiper = new Swiper(".testimonial-swiper", {
             slidesPerView: 1,
@@ -277,6 +260,8 @@
             },
         });
     </script>
+
+    <!-- Initialize Menu Swiper -->
     <script>
         var swiper = new Swiper(".menu-swiper", {
             slidesPerView: 1,

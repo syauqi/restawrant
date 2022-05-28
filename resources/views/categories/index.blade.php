@@ -1,5 +1,6 @@
 <x-guest-layout>
 
+    <!-- ------------------------ Category Hero Section ------------------------ -->
     <div class="container">
         <div class="mt-4 mt-md-0 mb-3 bg-warning text-white rounded-3">
             <div class="container-fluid">
@@ -23,6 +24,7 @@
         </div>
     </div>
 
+    <!-- ------------------------ Category Card Section ------------------------ -->
     <div class="container mt-4 mb-5">
         <div class="row g-3">
             @foreach ($categories as $category)
@@ -44,4 +46,5 @@
             @endforeach
         </div>
     </div>
+
 </x-guest-layout>

@@ -1,5 +1,6 @@
 <x-guest-layout>
 
+    <!-- ------------------------ Menu Hero Section ------------------------ -->
     <div class="container">
         <div class="mt-4 mt-md-0 mb-3 bg-warning text-white rounded-3">
             <div class="container-fluid">
@@ -23,7 +24,8 @@
         </div>
     </div>
 
-    <div class="container">
+    <!-- ------------------------ Menu Main Content [Filter & Menu Card] Section ------------------------ -->
+    <div class="container" style="margin-bottom: 100px">
         <div class="row g-3">
             <div class="col-md-4 mb-3 d-none d-md-block">
                 <div class="flex-shrink-0 p-3 bg-warning rounded-3 sticky-top menu-filter">
@@ -168,7 +170,7 @@
                     @foreach ($menus as $menu)
                         <div class="col-md-4">
                             <div class="card card-borderless-shadow card-min-height">
-                                <img src="{{ Storage::url($menu->image) }}" class="card-img-top" />
+                                <img src="{{ Storage::url($menu->image) }}" class="card-img-top card-img-top-menus" />
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold"> {{ $menu->name }}</h5>
                                     <div class="category-card-description-wrapper">
@@ -184,12 +186,6 @@
                     @endforeach
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <p style="margin-bottom: 100px;"></p>
         </div>
     </div>
 

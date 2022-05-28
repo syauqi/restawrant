@@ -72,7 +72,8 @@
                             @forelse ($menus as $menu)
                                 <div class="swiper-slide">
                                     <div class="card">
-                                        <img src="{{ Storage::url($menu->image) }}" class="card-img-top" />
+                                        <img src="{{ Storage::url($menu->image) }}"
+                                            class="card-img-top card-img-top-landing-page" />
                                         <div class="card-body">
                                             <h5 class="card-title fw-bold"> {{ $menu->name }}</h5>
                                             <p class="card-text" style="font-size: 13px;">

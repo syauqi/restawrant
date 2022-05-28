@@ -180,9 +180,15 @@ header {
     z-index: 9;
 }
 
-.card-img-top {
+.card-img-top-landing-page {
     background-position: cover;
     height: 260px;
+    object-fit: cover;
+}
+
+.card-img-top-menus {
+    background-position: cover;
+    height: 200px;
     object-fit: cover;
 }
 

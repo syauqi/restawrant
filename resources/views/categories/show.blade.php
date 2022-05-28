@@ -1,22 +1,49 @@
 <x-guest-layout>
-    <div class="container w-full px-5 py-6 mx-auto">
-        <div class="grid lg:grid-cols-4 gap-y-6">
-            @foreach ($category->menus as $menu)
-                <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
-                    <img class="w-full h-48" src="{{ Storage::url($menu->image) }}" alt="Image" />
-                    <div class="px-6 py-4">
-                        <h4 class="mb-3 text-xl font-semibold tracking-tight text-green-600 uppercase">
-                            {{ $menu->name }}</h4>
-                        <p class="leading-normal text-gray-700">
-                            {{ $menu->description }}
+
+    <!-- ------------------------ Show Category Hero Section ------------------------ -->
+    <div class="container">
+        <div class="mt-4 mt-md-0 mb-3 bg-warning text-white rounded-3">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8 p-5 my-auto align-center">
+                        <h1 class="display-5 fw-bold">Kategori — {{ $category->name }}</h1>
+                        <p class="col-md-10">
+                            {{ $category->description }}
                         </p>
+                        <button class="btn btn-outline-light text-white px-4 fw-bold" type="button">
+                            Lihat semua &nbsp; <i class="fas fa-arrow-down"></i>
+                        </button>
                     </div>
-                    <div class="flex items-center justify-between p-4">
-                        <span class="text-xl text-green-600">${{ $menu->price }}</span>
+                    <div class="col-md-4 my-auto p-0">
+                        <img src="{{ Storage::url($category->image) }}"
+                            class="img-fluid img-jumbotron d-none d-md-block" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ------------------------ Show Category Card Section ------------------------ -->
+    <div class="container mt-4 mb-5">
+        <div class="row g-3">
+            @foreach ($category->menus as $menu)
+                <div class="col-md-3">
+                    <div class="card card-borderless-shadow card-min-height">
+                        <img src="{{ Storage::url($menu->image) }}" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold"> {{ $menu->name }}</h5>
+                            <div class="category-card-description-wrapper">
+                                <p class="card-text category-card-description" style="font-size: 13px;">
+                                    {{ $menu->description }}
+                                </p>
+                            </div>
+                            <hr>
+                            <h5 class="fw-semibold">{{ $menu->price }}</h5>
+                        </div>
                     </div>
                 </div>
             @endforeach
-
         </div>
     </div>
+
 </x-guest-layout>
