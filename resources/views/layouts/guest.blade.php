@@ -56,10 +56,10 @@
                             <a class="nav-link" href="#">Tentang Kami</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Kategori</a>
+                            <a class="nav-link" href="{{ route('categories.index') }}">Kategori</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu</a>
+                            <a class="nav-link" href="{{ route('menus.index') }}">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Galeri Outlet</a>
@@ -88,10 +88,10 @@
                     <a href="#" class="nav-link link-dark text-grey px-2">Tentang Kami</a>
                 </li>
                 <li class="nav-item me-2">
-                    <a href="#" class="nav-link link-dark text-grey px-2">Kategori</a>
+                    <a href="{{ route('categories.index') }}" class="nav-link link-dark text-grey px-2">Kategori</a>
                 </li>
                 <li class="nav-item me-2">
-                    <a href="#" class="nav-link link-dark text-grey px-2">Menu</a>
+                    <a href="{{ route('menus.index') }}" class="nav-link link-dark text-grey px-2">Menu</a>
                 </li>
                 <li class="nav-item me-2">
                     <a href="#" class="nav-link link-dark text-grey px-2">Galeri Outlet</a>
@@ -211,6 +211,7 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>

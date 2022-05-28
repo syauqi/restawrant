@@ -84,11 +84,38 @@ header {
     font-size: 48px;
 }
 
+.card-borderless-shadow {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.004) 0px 2.3px 1.9px 0px,
+        rgba(0, 0, 0, 0.004) 0px 5.4px 4.3px 0px,
+        rgba(0, 0, 0, 0.008) 0px 9.7px 7.7px 0px,
+        rgba(0, 0, 0, 0.01) 0px 16.1px 12.8px 0px,
+        rgba(0, 0, 0, 0.016) 0px 26.5px 21.2px 0px,
+        rgba(0, 0, 0, 0.02) 0px 46.2px 37px 0px,
+        rgba(0, 0, 0, 0.03) 0px 100px 80px 0px;
+}
+
 .background-cta {
     background-image: url("/images/landing-page/cta.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 92%;
+}
+
+.img-jumbotron {
+    width: 100%;
+    height: 53vh;
+    object-fit: cover;
+}
+
+.category-card-description {
+    -webkit-line-clamp: 3;
+}
+
+.category-card-description-wrapper {
+    display: flex;
+    align-items: center;
+    height: 80px;
 }
 
 footer {
@@ -128,6 +155,11 @@ footer {
 
 .btn-outline-warning:hover {
     color: white;
+}
+
+.btn-outline-light:hover {
+    color: #fcca29 !important;
+    background-color: #fff;
 }
 
 .rounded-logo {
