@@ -69,76 +69,23 @@
                 <div class="container">
                     <div class="swiper menu-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <img src="{{ url('images/shapes/rectangle.png') }}" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Seblak Seafood</h5>
-                                        <p class="card-text" style="font-size: 13px;">
-                                            Some quick example text to build on the card title and
-                                            make up the bulk
-                                        </p>
-                                        <hr>
-                                        <h5 class="fw-semibold">Rp. 16.000,00</h5>
+                            @forelse ($menus as $menu)
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img src="{{ Storage::url($menu->image) }}" class="card-img-top" />
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold"> {{ $menu->name }}</h5>
+                                            <p class="card-text" style="font-size: 13px;">
+                                                {{ $menu->description }}
+                                            </p>
+                                            <hr>
+                                            <h5 class="fw-semibold">{{ $menu->price }}</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <img src="{{ url('images/shapes/rectangle.png') }}" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Seblak Seafood</h5>
-                                        <p class="card-text" style="font-size: 13px;">
-                                            Some quick example text to build on the card title and
-                                            make up the bulk
-                                        </p>
-                                        <hr>
-                                        <h5 class="fw-semibold">Rp. 16.000,00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <img src="{{ url('images/shapes/rectangle.png') }}" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Seblak Seafood</h5>
-                                        <p class="card-text" style="font-size: 13px;">
-                                            Some quick example text to build on the card title and
-                                            make up the bulk
-                                        </p>
-                                        <hr>
-                                        <h5 class="fw-semibold">Rp. 16.000,00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <img src="{{ url('images/shapes/rectangle.png') }}" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Seblak Seafood</h5>
-                                        <p class="card-text" style="font-size: 13px;">
-                                            Some quick example text to build on the card title and
-                                            make up the bulk
-                                        </p>
-                                        <hr>
-                                        <h5 class="fw-semibold">Rp. 16.000,00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <img src="{{ url('images/shapes/rectangle.png') }}" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Seblak Seafood</h5>
-                                        <p class="card-text" style="font-size: 13px;">
-                                            Some quick example text to build on the card title and
-                                            make up the bulk
-                                        </p>
-                                        <hr>
-                                        <h5 class="fw-semibold">Rp. 16.000,00</h5>
-                                    </div>
-                                </div>
-                            </div>
+                            @empty
+                                <p>gak ada menu euy</p>
+                            @endforelse
                         </div>
                     </div>
                 </div>

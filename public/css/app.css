@@ -118,6 +118,74 @@ header {
     height: 80px;
 }
 
+.dropdown-toggle {
+    outline: 0;
+}
+
+.nav-flush .nav-link {
+    border-radius: 0;
+}
+
+.btn-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: transparent;
+    border: 0;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+    color: #ffffff;
+    background-color: #fcca29;
+}
+
+.btn-toggle::before {
+    width: 1.25em;
+    line-height: 0;
+    color: #ffffff;
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba(255,255,255, 0.7)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    transition: transform 0.35s ease;
+    transform-origin: 0.5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+    transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+    display: inline-flex;
+    padding: 0.1875rem 0.5rem;
+    margin-top: 0.125rem;
+    margin-left: 1.25rem;
+    text-decoration: none;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+    background-color: #c39603;
+}
+
+.menu-filter {
+    top: 96px;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    border-radius: 6px;
+    z-index: 9;
+}
+
+.card-img-top {
+    background-position: cover;
+    height: 260px;
+    object-fit: cover;
+}
+
 footer {
     background-color: #fcca29;
 }

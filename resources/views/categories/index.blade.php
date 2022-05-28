@@ -5,17 +5,17 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8 p-5 my-auto align-center">
-                        <h1 class="display-6 fw-bold">Kategori Makanan & Minuman</h1>
+                        <h1 class="display-5 fw-bold">Kategori Makanan & Minuman Restawrant</h1>
                         <p class="col-md-10">
                             Cari kategori makanan dan minuman mu disini agar lebih mudah dicari, kalau udah ketemu
-                            tinggal tekan tombol selengkapnya di bagian kategori yang kamu pilih
+                            tinggal tekan tombol selengkapnya
                         </p>
                         <button class="btn btn-outline-light text-white px-4 fw-bold" type="button">
                             Lihat semua &nbsp; <i class="fas fa-arrow-down"></i>
                         </button>
                     </div>
                     <div class="col-md-4 my-auto p-0">
-                        <img src="{{ url('images/landing-page/user-listing-images-removebg-preview-2.png') }}"
+                        <img src="{{ url('images/landing-page/category-hero-images.png') }}"
                             class="img-fluid img-jumbotron d-none d-md-block" />
                     </div>
                 </div>

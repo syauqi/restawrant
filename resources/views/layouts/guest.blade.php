@@ -129,6 +129,7 @@
         </div>
     </header>
 
+    <!-- ------------------------ Main Content Section ------------------------ -->
     <main>
         {{ $slot }}
     </main>
@@ -188,20 +189,17 @@
                             </a>
                         </li>
                         <li class="mb-1">
-                            <a class="link-light text-decoration-none"
-                                href="https://www.instagram.com/tokojob.official/" target="_blank">
+                            <a class="link-light text-decoration-none" href="#" target="_blank">
                                 <i class="fab fa-instagram"></i> &nbsp; Instagram
                             </a>
                         </li>
                         <li class="mb-1">
-                            <a class="link-light text-decoration-none" href="https://twitter.com/tokojob"
-                                target="_blank">
+                            <a class="link-light text-decoration-none" href="#" target="_blank">
                                 <i class="fab fa-twitter"></i> &nbsp;Twitter
                             </a>
                         </li>
                         <li class="mb-5 mb-md-1">
-                            <a class="link-light text-decoration-none" href="https://www.facebook.com/TokoJob/"
-                                target="_blank">
+                            <a class="link-light text-decoration-none" href="#" target="_blank">
                                 <i class="fab fa-facebook-square"></i> &nbsp; Facebook
                             </a>
                         </li>
