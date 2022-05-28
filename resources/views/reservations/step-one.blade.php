@@ -1,111 +1,104 @@
 <x-guest-layout>
-    <div class="container w-full px-5 py-6 mx-auto">
-        <div class="flex items-center min-h-screen bg-gray-50">
-            <div class="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
-                <div class="flex flex-col md:flex-row">
-                    <div class="h-32 md:h-auto md:w-1/2">
-                        <img class="object-cover w-full h-full"
-                            src="https://cdn.pixabay.com/photo/2021/01/15/17/01/green-5919790__340.jpg" alt="img" />
-                    </div>
-                    <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-                        <div class="w-full">
-                            <h3 class="mb-4 text-xl font-bold text-blue-600">Make Reservation</h3>
 
-                            <div class="w-full bg-gray-200 rounded-full">
-                                <div
-                                    class="w-40 p-1 text-xs font-medium leading-none text-center text-blue-100 bg-blue-600 rounded-full">
-                                    Step1</div>
-                            </div>
-
-                            <form method="POST" action="{{ route('reservations.store.step.one') }}">
-                                @csrf
-                                <div class="sm:col-span-6">
-                                    <label for="first_name" class="block text-sm font-medium text-gray-700"> First Name
-                                    </label>
-                                    <div class="mt-1">
-                                        <input type="text" id="first_name" name="first_name"
-                                            value="{{ $reservation->first_name ?? '' }}"
-                                            class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                                    </div>
-                                    @error('first_name')
-                                        <div class="text-sm text-red-400">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="sm:col-span-6">
-                                    <label for="last_name" class="block text-sm font-medium text-gray-700"> Last Name
-                                    </label>
-                                    <div class="mt-1">
-                                        <input type="text" id="last_name" name="last_name"
-                                            value="{{ $reservation->last_name ?? '' }}"
-                                            class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                                    </div>
-                                    @error('last_name')
-                                        <div class="text-sm text-red-400">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="sm:col-span-6">
-                                    <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
-                                    <div class="mt-1">
-                                        <input type="email" id="email" name="email"
-                                            value="{{ $reservation->email ?? '' }}"
-                                            class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                                    </div>
-                                    @error('email')
-                                        <div class="text-sm text-red-400">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="sm:col-span-6">
-                                    <label for="tel_number" class="block text-sm font-medium text-gray-700"> Phone
-                                        number
-                                    </label>
-                                    <div class="mt-1">
-                                        <input type="text" id="tel_number" name="tel_number"
-                                            value="{{ $reservation->tel_number ?? '' }}"
-                                            class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                                    </div>
-                                    @error('tel_number')
-                                        <div class="text-sm text-red-400">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="sm:col-span-6">
-                                    <label for="res_date" class="block text-sm font-medium text-gray-700"> Reservation
-                                        Date
-                                    </label>
-                                    <div class="mt-1">
-                                        <input type="datetime-local" id="res_date" name="res_date"
-                                            min="{{ $min_date->format('Y-m-d\TH:i:s') }}"
-                                            max="{{ $max_date->format('Y-m-d\TH:i:s') }}"
-                                            value="{{ $reservation ? $reservation->res_date->format('Y-m-d\TH:i:s') : '' }}"
-                                            class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                                    </div>
-                                    <span class="text-xs">Please choose the time between 17:00-23:00.</span>
-                                    @error('res_date')
-                                        <div class="text-sm text-red-400">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="sm:col-span-6">
-                                    <label for="guest_number" class="block text-sm font-medium text-gray-700"> Guest
-                                        Number
-                                    </label>
-                                    <div class="mt-1">
-                                        <input type="number" id="guest_number" name="guest_number"
-                                            value="{{ $reservation->guest_number ?? '' }}"
-                                            class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                                    </div>
-                                    @error('guest_number')
-                                        <div class="text-sm text-red-400">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="mt-6 p-4 flex justify-end">
-                                    <button type="submit"
-                                        class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Next</button>
-                                </div>
-                            </form>
+    <!-- ------------------------   Reservation Step One Form Section ------------------------ -->
+    <section class="my-5">
+        <div class="container">
+            <div class="row my-4 mx-1">
+                <div
+                    class="
+                col-md-12
+                mx-auto
+                bg-warning
+                text-white
+                p-md-5 p-4
+                shadow-lg
+                rounded-3
+              ">
+                    <small>RESERVASI RESTAWRANT</small>
+                    <h1 class="fw-bold">Reservasi tempat meja di Restawrant</h1>
+                    <p>Isi form dibawah dengan benar untuk reservasi di Restawrant</p>
+                    <hr />
+                    <form method="POST" action="{{ route('reservations.store.step.one') }}" class="row g-3">
+                        @csrf
+                        <div class="col-md-6">
+                            <label for="nama_depan_input" class="form-label">Nama Depan</label>
+                            <input type="text" name="first_name" value="{{ $reservation->first_name ?? '' }}"
+                                placeholder="Masukkan nama depan anda" class="form-control" id="nama_depan_input" />
+                            @error('first_name')
+                                <p class="register_text_error">{{ $message }}</p>
+                            @enderror
                         </div>
-                    </div>
+                        <div class="col-md-6">
+                            <label for="nama_belakang_input" class="form-label">Nama Belakang</label>
+                            <input type="text" name="last_name" value="{{ $reservation->last_name ?? '' }}"
+                                placeholder="Masukkan nama belakang anda" class="form-control"
+                                id="nama_belakang_input" />
+                            @error('last_name')
+                                <p class="register_text_error">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-md-12">
+                            <label for="email_input" class="form-label">Email</label>
+                            <input type="text" name="email" value="{{ $reservation->email ?? '' }}"
+                                placeholder="contoh : restawrant@example.com" class="form-control" id="email_input" />
+                            @error('email')
+                                <p class="register_text_error">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nomor_telepon_input" class="form-label">Nomor Telepon</label>
+                            <input type="number" name="tel_number" value="{{ $reservation->tel_number ?? '' }}"
+                                placeholder="Masukkan nomor telepon anda" class="form-control"
+                                id="nomor_telepon_input" />
+                            @error('tel_number')
+                                <p class="register_text_error">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nomor_telepon_input" class="form-label">Tanggal Reservasi</label>
+                            <input type="datetime-local" id="res_date" name="res_date"
+                                min="{{ $min_date->format('Y-m-d\TH:i:s') }}"
+                                max="{{ $max_date->format('Y-m-d\TH:i:s') }}"
+                                value="{{ $reservation ? $reservation->res_date->format('Y-m-d\TH:i:s') : '' }}"
+                                class="form-control" />
+                            <span class="mt-1 fs-12">Dimohon untuk memilih jam 17:00-23:00.</span>
+                            @error('res_date')
+                                <p class="register_text_error">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-md-12">
+                            <label for="jenis_kelamin_input" class="form-label">Jumlah Tamu</label>
+                            <select name="guest_number" id="jenis_kelamin_input" class="form-select">
+                                <option selected>Jumlah Tamu ...</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            @error('guest_number')
+                                <p class="register_text_error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-12 mx-auto mt-4 text-center">
+                            <p class="text-center col-md-8 mx-auto">
+                                Tahap selanjutnya adalah memilih meja yang akan anda tempati, harap konfirmasi data dan
+                                nomor telepon yang telah diisi
+                            </p>
+                            <button type="submit" class="btn btn-outline-light text-white px-5 py-2 fw-bold">
+                                Selanjutnya &nbsp; <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </section>
 
-    </div>
 </x-guest-layout>

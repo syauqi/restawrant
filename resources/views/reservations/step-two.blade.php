@@ -1,55 +1,62 @@
 <x-guest-layout>
-    <div class="container w-full px-5 py-6 mx-auto">
-        <div class="flex items-center min-h-screen bg-gray-50">
-            <div class="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
-                <div class="flex flex-col md:flex-row">
-                    <div class="h-32 md:h-auto md:w-1/2">
-                        <img class="object-cover w-full h-full"
-                            src="https://cdn.pixabay.com/photo/2021/01/15/17/01/green-5919790__340.jpg" alt="img" />
-                    </div>
-                    <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-                        <div class="w-full">
-                            <h3 class="mb-4 text-xl font-bold text-blue-600">Make Reservation</h3>
 
-                            <div class="w-full bg-gray-200 rounded-full">
-                                <div
-                                    class="w-100 p-1 text-xs font-medium leading-none text-center text-blue-100 bg-blue-600 rounded-full">
-                                    Step 2</div>
-                            </div>
-
-                            <form method="POST" action="{{ route('reservations.store.step.two') }}">
-                                @csrf
-                                <div class="sm:col-span-6 pt-5">
-                                    <label for="status" class="block text-sm font-medium text-gray-700">Table</label>
-                                    <div class="mt-1">
-                                        <select id="table_id" name="table_id"
-                                            class="form-multiselect block w-full mt-1">
-                                            @foreach ($tables as $table)
-                                                <option value="{{ $table->id }}" @selected($table->id == $reservation->table_id)>
-                                                    {{ $table->name }}
-                                                    ({{ $table->guest_number }} Guests)
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    @error('table_id')
-                                        <div class="text-sm text-red-400">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="mt-6 p-4 flex justify-between">
-                                    <a href="{{ route('reservations.step.one') }}"
-                                        class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Previous</a>
-                                    <button type="submit"
-                                        class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Make
-                                        Reservation</button>
-                                </div>
-                            </form>
+    <!-- ------------------------   Reservation Step Two Form Section ------------------------ -->
+    <section class="my-5">
+        <div class="container">
+            <div class="row my-4 mx-1">
+                <div
+                    class="
+                col-md-12
+                mx-auto
+                bg-warning
+                text-white
+                p-md-5 p-4
+                shadow-lg
+                rounded-3
+              ">
+                    <small>RESERVASI RESTAWRANT</small>
+                    <h1 class="fw-bold">Reservasi tempat meja di Restawrant</h1>
+                    <p>Pilih meja tempat anda reservasi tempat di Restawrant</p>
+                    <hr />
+                    <form method="POST" action="{{ route('reservations.store.step.two') }}" class="row g-3">
+                        @csrf
+                        <div class="col-md-12">
+                            <label for="jenis_kelamin_input" class="form-label">Pilih Meja</label>
+                            <select name="table_id" id="jenis_kelamin_input" class="form-select">
+                                <option selected>Pilih Meja ...</option>
+                                @forelse ($tables as $table)
+                                    <option value="{{ $table->id }}" @selected($table->id == $reservation->table_id)>
+                                        {{ $table->name }}
+                                        ({{ $table->guest_number }} Guests)
+                                    </option>
+                                @empty
+                                    <option value="">
+                                        Tidak ada meja yang tersedia :()
+                                    </option>
+                                @endforelse
+                            </select>
+                            @error('table_id')
+                                <p class="register_text_error">{{ $message }}</p>
+                            @enderror
                         </div>
-                    </div>
+
+                        <div class="col-md-12 mx-auto mt-4 text-center">
+                            <p class="text-center col-md-8 mx-auto">
+                                Dengan menekan tombol 'buat reservasi' berarti anda menyatakan setuju dan siap
+                                bertanggung jawab atas reservasi yang anda telah buat
+                            </p>
+                            <a href="{{ route('reservations.step.one') }}"
+                                class="btn btn-outline-light text-white px-5 py-2 fw-bold me-3">
+                                Sebelumnya &nbsp; <i class="fas fa-arrow-left"></i>
+                            </a>
+                            <button type="submit" class="btn btn-outline-light text-white px-5 py-2 fw-bold">
+                                Buat Reservasi &nbsp; <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </section>
 
-    </div>
 </x-guest-layout>

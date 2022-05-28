@@ -192,6 +192,22 @@ header {
     object-fit: cover;
 }
 
+.register_text_error {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 3px;
+    padding: 3px 12px;
+    background-color: #eb4a4a;
+    color: #fefefe;
+    margin-top: 8px;
+}
+
 footer {
     background-color: #fcca29;
 }
