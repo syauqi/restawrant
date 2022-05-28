@@ -88,6 +88,7 @@ header {
     background-image: url("/images/landing-page/cta.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 92%;
 }
 
 footer {
@@ -100,8 +101,17 @@ footer {
     font-size: 12px;
 }
 
+.fs-15 {
+    font-size: 15px;
+}
+
 .fw-500 {
     font-weight: 500;
+}
+
+.my-100 {
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .bg-warning {
