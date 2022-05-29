@@ -17,6 +17,10 @@
     background-color: #a8bbbf;
 }
 
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Plus Jakarta Display", sans-serif;
 }
@@ -245,6 +249,10 @@ footer {
 
 .btn-outline-warning:hover {
     color: white;
+}
+
+.no-effect-hover:hover {
+    color: #808080 !important;
 }
 
 .btn-outline-light:hover {

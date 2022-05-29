@@ -13,7 +13,9 @@ class WelcomeController extends Controller
     {
         $menus = Menu::take(8)->get();
 
-        return view('welcome', compact('menus'));
+        $categories = Category::all();
+
+        return view('welcome', compact('menus', 'categories'));
     }
 
     public function thankyou()

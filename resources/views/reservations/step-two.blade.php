@@ -47,7 +47,7 @@
                             </p>
                             <a href="{{ route('reservations.step.one') }}"
                                 class="btn btn-outline-light text-white px-5 py-2 fw-bold me-3">
-                                Sebelumnya &nbsp; <i class="fas fa-arrow-left"></i>
+                                <i class="fas fa-arrow-left"></i> &nbsp; Sebelumnya
                             </a>
                             <button type="submit" class="btn btn-outline-light text-white px-5 py-2 fw-bold">
                                 Buat Reservasi &nbsp; <i class="fas fa-arrow-right"></i>

@@ -53,7 +53,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tentang Kami</a>
+                            <a class="nav-link" href="/#tentang-kami">Tentang Kami</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('categories.index') }}">Kategori</a>
@@ -62,7 +62,7 @@
                             <a class="nav-link" href="{{ route('menus.index') }}">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Galeri Outlet</a>
+                            <a class="nav-link" href="/#galeri-outlet">Galeri Outlet</a>
                         </li>
                     </ul>
                     <hr />
@@ -85,7 +85,7 @@
                     <a href="/" class="nav-link link-dark text-grey px-2 active" aria-current="page">Beranda</a>
                 </li>
                 <li class="nav-item me-2">
-                    <a href="#" class="nav-link link-dark text-grey px-2">Tentang Kami</a>
+                    <a href="/#tentang-kami" class="nav-link link-dark text-grey px-2">Tentang Kami</a>
                 </li>
                 <li class="nav-item me-2">
                     <a href="{{ route('categories.index') }}" class="nav-link link-dark text-grey px-2">Kategori</a>
@@ -94,22 +94,23 @@
                     <a href="{{ route('menus.index') }}" class="nav-link link-dark text-grey px-2">Menu</a>
                 </li>
                 <li class="nav-item me-2">
-                    <a href="#" class="nav-link link-dark text-grey px-2">Galeri Outlet</a>
+                    <a href="/#galeri-outlet" class="nav-link link-dark text-grey px-2">Galeri Outlet</a>
                 </li>
             </ul>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link link-dark text-grey px-2">Nomor Telepon</a>
+                    <a class="nav-link link-dark text-grey px-2 no-effect-hover">Nomor Telepon</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link-dark text-grey px-2">|</a>
+                    <a class="nav-link link-dark text-grey px-2 no-effect-hover">|</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link link-dark text-grey px-2" target="_blank">
-                        +6285156162840</a>
+                    <a href="https://wa.me/+628123456789" class="nav-link link-dark text-grey px-2" target="_blank">
+                        +628123456789</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" target="_blank" class="nav-link link-dark text-grey px-2">+6285156162841</a>
+                    <a href="https://wa.me/+628987654321" target="_blank"
+                        class="nav-link link-dark text-grey px-2">+628987654321</a>
                 </li>
             </ul>
         </div>
@@ -215,7 +216,7 @@
     <!-- Splide JS -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.2/dist/js/splide.min.js"></script>
 
-    <!-- Initializing Splide JS -->
+    <!-- Initializing Hero Section Splide JS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var splide = new Splide('.splide', {
@@ -232,6 +233,19 @@
                         padding: '8px',
                     },
                 }
+            });
+            splide.mount();
+        });
+    </script>
+
+    <!-- Initializing Feature Section Splide JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var splide = new Splide('.splide2', {
+                type: 'fade',
+                rewind: true,
+                autoplay: true,
+                arrows: false,
             });
             splide.mount();
         });

@@ -5,16 +5,22 @@
         <div class="splide__track">
             <ul class="splide__list">
                 <li class="splide__slide">
-                    <img src="{{ url('images/splide/hero-slide-1.png') }}" class="d-block w-100"
-                        style="border-radius:8px;">
+                    <a href="{{ url('/menus') }}">
+                        <img src="{{ url('images/splide/hero-slide-1.png') }}" class="d-block w-100"
+                            style="border-radius:8px;">
+                    </a>
                 </li>
                 <li class="splide__slide">
-                    <img src="{{ url('images/splide/hero-slide-2.png') }}" class="d-block w-100"
-                        style="border-radius:8px;">
+                    <a href="{{ url('/reservation/step-one') }}">
+                        <img src=" {{ url('images/splide/hero-slide-2.png') }}" class="d-block w-100"
+                            style="border-radius:8px;">
+                    </a>
                 </li>
                 <li class="splide__slide">
-                    <img src="{{ url('images/splide/hero-slide-3.png') }}" class="d-block w-100"
-                        style="border-radius:8px;">
+                    <a href="{{ url('/reservation/step-one') }}">
+                        <img src="{{ url('images/splide/hero-slide-3.png') }}" class="d-block w-100"
+                            style="border-radius:8px;">
+                    </a>
                 </li>
                 <li class="splide__slide">
                     <img src="{{ url('images/splide/hero-slide-4.png') }}" class="d-block w-100"
@@ -92,10 +98,10 @@
                 </div>
                 <div class="container mt-4">
                     <div class="row">
-                        <a href="#"
-                            class="btn btn-warning text-white px-4 mx-auto text-center col-10 col-md-3 my-3">Lihat
-                            Selengkapnya
-                            ⇾</a>
+                        <a href="{{ url('/menus') }}"
+                            class="btn btn-warning text-white px-4 mx-auto text-center col-10 col-md-3 my-3 fw-bold">Lihat
+                            Semua
+                            &nbsp; <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -103,12 +109,38 @@
     </section>
 
     <!-- ------------------------ #1 Feature Section ------------------------ -->
-    <section class="my-100">
+    <section class="my-100" id="tentang-kami">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-12 col-lg-7 mb-4 mb-lg-0">
-                    <img src="{{ url('images/landing-page/core-features.jpg') }}" class="img-fluid shadow-images" />
+                <div class="col-12 col-md-12 col-lg-7 mb-4 mb-lg-0 my-auto">
+                    <div class="splide splide2">
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                <div class="splide__slide" data-splide-interval="600">
+                                    <img src="{{ url('images/landing-page/reservation-features-images.png') }}"
+                                        class="img-fluid shadow-images" />
+                                </div>
+                                <div class="splide__slide" data-splide-interval="600">
+                                    <img src="{{ url('images/landing-page/reservation-features-images-2.png') }}"
+                                        class="img-fluid shadow-images" />
+                                </div>
+                                <div class="splide__slide" data-splide-interval="600">
+                                    <img src="{{ url('images/landing-page/reservation-features-images-3.png') }}"
+                                        class="img-fluid shadow-images" />
+                                </div>
+                                <div class="splide__slide" data-splide-interval="600">
+                                    <img src="{{ url('images/landing-page/reservation-features-images-4.png') }}"
+                                        class="img-fluid shadow-images" />
+                                </div>
+                                <div class="splide__slide" data-splide-interval="600">
+                                    <img src="{{ url('images/landing-page/reservation-features-images-5.png') }}"
+                                        class="img-fluid shadow-images" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div
                     class="
                     col-12 col-md-12 col-lg-4
@@ -155,110 +187,24 @@
                 <p>Mau cari minuman, makanan, dessert atau oleh oleh ada kategorinya nih</p>
             </div>
             <div class="row g-3">
-                <div class="col-md-4 col-lg-3">
-                    <div class="card card-in-home bg-warning text-white text-center">
-                        <div class="card-body">
-                            <i class="fas fa-coffee" style="font-size: 36px; color:white;"></i>
-                            <h5 class="card-title mt-1">Minuman</h5>
-                            <p class="card-text">
-                                Kumpulan minuman yang bikin seger tenggorokan
-                            </p>
-                            <a href="#" class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
-                                <small class="arrow-category-button">→</small></a>
+                @forelse ($categories as $cat)
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card card-in-home bg-warning text-white text-center">
+                            <img class="card-img-top" src="{{ Storage::url($cat->image) }}" alt="" srcset="">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold mt-1">{{ $cat->name }}</h5>
+                                <p class="card-text">
+                                    {{ $cat->description }}
+                                </p>
+                                <a href="{{ route('categories.show', $cat->id) }}"
+                                    class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
+                                    <small class="arrow-category-button">→</small></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card card-in-home bg-warning text-white text-center">
-                        <div class="card-body">
-                            <i class="fas fa-utensils" style="font-size: 36px; color:white;"></i>
-                            <h5 class="card-title mt-1">Makanan</h5>
-                            <p class="card-text">
-                                Kumpulan makanan yang bikin perut kenyang
-                            </p>
-                            <a href="#" class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
-                                <small class="arrow-category-button">→</small></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card card-in-home bg-warning text-white text-center">
-                        <div class="card-body">
-                            <i class="fas fa-coffee" style="font-size: 36px; color:white;"></i>
-                            <h5 class="card-title mt-1">Minuman</h5>
-                            <p class="card-text">
-                                Kumpulan minuman yang bikin seger tenggorokan
-                            </p>
-                            <a href="#" class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
-                                <small class="arrow-category-button">→</small></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card card-in-home bg-warning text-white text-center">
-                        <div class="card-body">
-                            <i class="fas fa-coffee" style="font-size: 36px; color:white;"></i>
-                            <h5 class="card-title mt-1">Minuman</h5>
-                            <p class="card-text">
-                                Kumpulan minuman yang bikin seger tenggorokan
-                            </p>
-                            <a href="#" class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
-                                <small class="arrow-category-button">→</small></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card card-in-home bg-warning text-white text-center">
-                        <div class="card-body">
-                            <i class="fas fa-coffee" style="font-size: 36px; color:white;"></i>
-                            <h5 class="card-title mt-1">Minuman</h5>
-                            <p class="card-text">
-                                Kumpulan minuman yang bikin seger tenggorokan
-                            </p>
-                            <a href="#" class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
-                                <small class="arrow-category-button">→</small></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card card-in-home bg-warning text-white text-center">
-                        <div class="card-body">
-                            <i class="fas fa-coffee" style="font-size: 36px; color:white;"></i>
-                            <h5 class="card-title mt-1">Minuman</h5>
-                            <p class="card-text">
-                                Kumpulan minuman yang bikin seger tenggorokan
-                            </p>
-                            <a href="#" class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
-                                <small class="arrow-category-button">→</small></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card card-in-home bg-warning text-white text-center">
-                        <div class="card-body">
-                            <i class="fas fa-coffee" style="font-size: 36px; color:white;"></i>
-                            <h5 class="card-title mt-1">Minuman</h5>
-                            <p class="card-text">
-                                Kumpulan minuman yang bikin seger tenggorokan
-                            </p>
-                            <a href="#" class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
-                                <small class="arrow-category-button">→</small></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card card-in-home bg-warning text-white text-center">
-                        <div class="card-body">
-                            <i class="fas fa-coffee" style="font-size: 36px; color:white;"></i>
-                            <h5 class="card-title mt-1">Minuman</h5>
-                            <p class="card-text">
-                                Kumpulan minuman yang bikin seger tenggorokan
-                            </p>
-                            <a href="#" class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
-                                <small class="arrow-category-button">→</small></a>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <p>gak ada kategori euy</p>
+                @endforelse
             </div>
         </div>
     </section>
@@ -314,7 +260,7 @@
                     <!-- The overlay area -->
                     <div class="container__overlay">
                         <!-- The player button -->
-                        <a target="_blank" href="https://www.instagram.com/p/CGZsbfvH9lC/">
+                        <a target="_blank" href="https://www.youtube.com/">
                             <i class="fas fa-play-circle text-white play-button"></i>
                         </a>
                     </div>
@@ -324,7 +270,7 @@
     </section>
 
     <!-- ------------------------ Gallery Pictures Section ------------------------ -->
-    <section class="my-100">
+    <section class="my-100" id="galeri-outlet">
         <div class="container">
             <div class="text-center mb-5">
                 <small class="text-warning fw-bold text-uppercase">Foto dan Dokumentasi di outlet kami</small>
@@ -376,12 +322,11 @@
                                     <div class="card-body">
                                         <h5 class="card-title lh-lg">⭐⭐⭐⭐⭐</h5>
                                         <h5 class="card-title lh-lg fw-bold">
-                                            Modern look & trending design
+                                            Tempat nyaman dan aman
                                         </h5>
                                         <p class="card-text mb-4">
-                                            Get working experience to work with this amazing team &
-                                            in future want to work together for bright future
-                                            projects and also make deposit to freelancer
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum a eveniet
+                                            consectetur ipsum accusantium alias dignissimos
                                         </p>
                                         <hr />
                                         <div class="row">
@@ -404,12 +349,11 @@
                                     <div class="card-body">
                                         <h5 class="card-title lh-lg">⭐⭐⭐⭐⭐</h5>
                                         <h5 class="card-title lh-lg fw-bold">
-                                            Modern look & trending design
+                                            Makanan Enak Banget Banget!
                                         </h5>
                                         <p class="card-text mb-4">
-                                            Get working experience to work with this amazing team &
-                                            in future want to work together for bright future
-                                            projects and also make deposit to freelancer
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum a eveniet
+                                            consectetur ipsum accusantium alias dignissimos
                                         </p>
                                         <hr />
                                         <div class="row">
@@ -419,9 +363,9 @@
                                             </div>
                                             <div class="col-10 col-md-10 my-auto">
                                                 <p class="mb-0 fw-bold">
-                                                    Syauqizaidan Khairan Khalaf
+                                                    Conrad Aditya Veranda
                                                 </p>
-                                                <small>Tukang tidur, 18 tahun</small>
+                                                <small>Tukang genshin, 18 tahun</small>
                                             </div>
                                         </div>
                                     </div>
@@ -432,12 +376,11 @@
                                     <div class="card-body">
                                         <h5 class="card-title lh-lg">⭐⭐⭐⭐⭐</h5>
                                         <h5 class="card-title lh-lg fw-bold">
-                                            Modern look & trending design
+                                            Pegawai nya cantik dan ganteng
                                         </h5>
                                         <p class="card-text mb-4">
-                                            Get working experience to work with this amazing team &
-                                            in future want to work together for bright future
-                                            projects and also make deposit to freelancer
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum a eveniet
+                                            consectetur ipsum accusantium alias dignissimos
                                         </p>
                                         <hr />
                                         <div class="row">
@@ -447,9 +390,9 @@
                                             </div>
                                             <div class="col-10 col-md-10 my-auto">
                                                 <p class="mb-0 fw-bold">
-                                                    Syauqizaidan Khairan Khalaf
+                                                    Andhika Febriansyah
                                                 </p>
-                                                <small>Tukang tidur, 18 tahun</small>
+                                                <small>Tukang bucin, 18 tahun</small>
                                             </div>
                                         </div>
                                     </div>
