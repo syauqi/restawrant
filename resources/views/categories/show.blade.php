@@ -32,7 +32,8 @@
                 @foreach ($category->menus as $menu)
                     <div class="col-md-3">
                         <div class="card card-borderless-shadow card-min-height">
-                            <img src="{{ Storage::url($menu->image) }}" class="card-img-top" />
+                            <img src="{{ Storage::url($menu->image) }}"
+                                class="card-img-top card-img-top-landing-page" />
                             <div class="card-body">
                                 <h5 class="card-title fw-bold"> {{ $menu->name }}</h5>
                                 <div class="category-card-description-wrapper">
@@ -41,7 +42,7 @@
                                     </p>
                                 </div>
                                 <hr>
-                                <h5 class="fw-semibold">{{ $menu->price }}</h5>
+                                <h5 class="fw-semibold">Rp.{{ $menu->price }}.000,00</h5>
                             </div>
                         </div>
                     </div>

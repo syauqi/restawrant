@@ -190,6 +190,12 @@ header {
     object-fit: cover;
 }
 
+.card-img-top-category-landing-page {
+    background-position: cover;
+    height: 240px;
+    object-fit: cover;
+}
+
 .card-img-top-menus {
     background-position: cover;
     height: 200px;

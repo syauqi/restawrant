@@ -82,11 +82,13 @@
                                             class="card-img-top card-img-top-landing-page" />
                                         <div class="card-body">
                                             <h5 class="card-title fw-bold"> {{ $menu->name }}</h5>
-                                            <p class="card-text" style="font-size: 13px;">
-                                                {{ $menu->description }}
-                                            </p>
+                                            <div class="category-card-description-wrapper">
+                                                <p class="card-text category-card-description" style="font-size: 13px;">
+                                                    {{ $menu->description }}
+                                                </p>
+                                            </div>
                                             <hr>
-                                            <h5 class="fw-semibold">{{ $menu->price }}</h5>
+                                            <h5 class="fw-semibold">Rp.{{ $menu->price }}.000,00</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -190,12 +192,15 @@
                 @forelse ($categories as $cat)
                     <div class="col-md-4 col-lg-3">
                         <div class="card card-in-home bg-warning text-white text-center">
-                            <img class="card-img-top" src="{{ Storage::url($cat->image) }}" alt="" srcset="">
+                            <img class="card-img-top card-img-top-category-landing-page"
+                                src="{{ Storage::url($cat->image) }}" alt="" srcset="">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold mt-1">{{ $cat->name }}</h5>
-                                <p class="card-text">
-                                    {{ $cat->description }}
-                                </p>
+                                <div class="category-card-description-wrapper">
+                                    <p class="card-text category-card-description" style="font-size: 14px;">
+                                        {{ $cat->description }}
+                                    </p>
+                                </div>
                                 <a href="{{ route('categories.show', $cat->id) }}"
                                     class="btn btn-outline-light fs-12">Lihat Semua &nbsp;
                                     <small class="arrow-category-button">→</small></a>
@@ -415,8 +420,8 @@
                         Pastikan kalian follow instagram dan twitter kami untuk informasi terkait promo, event, menu
                         baru atau giveaway bagi kalian para restawvers di seluruh Indonesia!
                     </p>
-                    <a href='https://discord.gg/gotterhavn' target="_blank"
-                        class="btn btn-outline-light mt-2 px-4 py-2" style="font-weight:500;">Follow Instagram
+                    <a href='#' target="_blank" class="btn btn-outline-light mt-2 px-4 py-2"
+                        style="font-weight:500;">Follow Instagram
                         ⇾</a>
                 </div>
                 <div class="col-md-4 background-cta ms-auto">

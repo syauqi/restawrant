@@ -185,7 +185,7 @@
                                             </p>
                                         </div>
                                         <hr>
-                                        <h5 class="fw-semibold">{{ $menu->price }}</h5>
+                                        <h5 class="fw-semibold">Rp.{{ $menu->price }}.000,00</h5>
                                     </div>
                                 </div>
                             </div>
