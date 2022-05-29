@@ -1,56 +1,100 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html lang="id">
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Restawrant —  Admin Management Dashboard">
+    <meta name="description" content="  Restawrant adalah restoran yang menyediakan berbagai macam kategori makanan mulai dari minuman,
+                        dessert dan lain lain dengan harga kaki lima namun rasanya bintang lima. Outlet kita selalu
+                        rame, jadi jangan lupa reservasi ya!">
+    <meta name="keywords" content="Restawrant, Open Source Restaurant Website">
+    <meta name="author" content="SYAUQIZAIDAN KHAIRAN KHALAF">
+    <link rel="icon" href="{{ url('cuba/assets/images/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('cuba/assets/images/icon-192.png') }}" type="image/x-icon">
+    <title>Masuk Aplikasi - Restawrant</title>
+    @include('includes.backend.style')
+</head>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-7">
+                <img class="bg-img-cover bg-center" src="{{ url('cuba/assets/images/login/login.jpg') }}"
+                    alt="looginpage">
             </div>
+            <div class="col-xl-5 p-0">
+                <div class="login-card">
+                    <div class="login-main col-10 col-md-10">
+                        <form class="theme-form" method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <h1>🍣</h1>
+                            <h4>Masuk untuk masuk dashboard</h4>
+                            <p class="mb-2">Masukkan email & password kamu buat login</p>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                            @if ($errors->any())
+                                <div class="alert alert-danger py-1 mb-1">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+                            <label class="col-form-label">Alamat Email</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-at"
+                                            width="16" height="16" viewBox="0 0 24 24" stroke-width="2"
+                                            stroke="currentColor" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                            <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <input class="form-control" type="email" name="email" placeholder="contoh@gmail.com"
+                                    autofocus required>
+                            </div>
+
+                            <label class="col-form-label">Password</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-lock" width="16" height="16"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+                                            <circle cx="12" cy="16" r="1"></circle>
+                                            <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <input class="form-control" type="password" name="password" required
+                                    placeholder="*********">
+                            </div>
+
+                            <div class="form-group mb-0">
+                                <div class="checkbox p-0">
+                                    <input id="checkbox1" type="checkbox" name="remember">
+                                    <label class="text-muted" for="checkbox1">Ingat Password</label>
+                                </div>
+                                <button class="btn btn-primary btn-block" type="submit">Masuk Sekarang ⇾ </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
             </div>
+        </div>
+        @include('includes.backend.script')
+    </div>
+</body>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+</html>
