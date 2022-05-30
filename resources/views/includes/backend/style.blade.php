@@ -27,6 +27,6 @@
 <link rel="stylesheet" type="text/css" href="{{ url('cuba/assets/css/vendors/bootstrap.css') }}">
 <!-- App css-->
 <link rel="stylesheet" type="text/css" href="{{ url('cuba/assets/css/style.css') }}">
-<link id="color" rel="stylesheet" href="{{ url('cuba/assets/css/color-3.css') }}" media="screen">
+<link id="color" rel="stylesheet" href="{{ url('cuba/assets/css/color-2.css') }}" media="screen">
 <!-- Responsive css-->
 <link rel="stylesheet" type="text/css" href="{{ url('cuba/assets/css/responsive.css') }}">

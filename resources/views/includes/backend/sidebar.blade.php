@@ -20,7 +20,7 @@
                 </li>
 
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title link-nav" href="{{url('dashboard')}}">
+                    <a class="sidebar-link sidebar-title link-nav" href="{{ url('admin') }}">
                         <i data-feather="home"></i>
                         <span>Dashboard</span>
                     </a>
@@ -28,25 +28,25 @@
 
                 <li class="sidebar-main-title">
                     <div>
-                        <h6>Kelola Data Akademik</h6>
-                        <p>Jadwal, Catatan, Galeri & File</p>
+                        <h6>Kelola Kategori & Menu</h6>
+                        <p>Menu & Kategori</p>
                     </div>
                 </li>
 
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title" href="#">
-                        <i data-feather="book"></i>
-                        <span>Jadwal Pelajaran</span>
+                        <i data-feather="grid"></i>
+                        <span>Kategori Makanan</span>
                     </a>
                     <ul class="sidebar-submenu">
                         <li class="active">
-                            <a href="{{url('/dashboard/jadwal-pelajaran')}}">
-                                Data Jadwal Pelajaran
+                            <a href="{{ url('/admin/categories') }}">
+                                Data Kategori Makanan
                             </a>
                         </li>
                         <li>
-                            <a href="{{url('/dashboard/jadwal-pelajaran/atur-jadwal')}}">
-                                Atur & Tambah Jadwal Pelajaran
+                            <a href="{{ url('/admin/categories/create') }}">
+                                Tambah Kategori Makanan / Minuman
                             </a>
                         </li>
                     </ul>
@@ -54,158 +54,67 @@
 
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title" href="#">
-                        <i data-feather="edit"></i>
-                        <span>Catatan & Tulisan</span>
+                        <i data-feather="coffee"></i>
+                        <span>Katalog Menu</span>
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
-                            <a href="{{url('/dashboard/catatan-pelajaran')}}">
-                                Semua Catatan Pelajaran
+                            <a href="{{ url('/admin/menus') }}">
+                                Semua Daftar Menu
                             </a>
                         </li>
                         <li>
-                            <a href="{{url('/dashboard/catatan-pelajaran/tambah-catatan')}}">
-                                Tulis & Tambah Catatan Baru
+                            <a href="{{ url('/admin/menus/create') }}">
+                                Tambah Menu Baru
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/dashboard/file-tugas')}}">
-                        <i data-feather="paperclip"></i>
-                        <span>File Manager</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="#">
-                        <i data-feather="image"></i>
-                        <span>Galeri Foto</span>
-                    </a>
-                    <ul class="sidebar-submenu">
-                        <li>
-                            <a href="{{url('/dashboard/galeri-foto')}}">
-                                Semua Galeri & Foto
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url('/dashboard/galeri-foto/tambah-foto')}}">
-                                Upload Foto Baru
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li class="sidebar-main-title">
                     <div>
-                        <h6>Kelola Todolist & Bookmark</h6>
+                        <h6>Kelola Reservasi & Meja</h6>
                         <p>Todolist, Kalender & Bookmark</p>
                     </div>
                 </li>
 
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/dashboard/todolist')}}">
-                        <i data-feather="check-square"></i>
-                        <span>Todolist</span>
+                    <a class="sidebar-link sidebar-title" href="#">
+                        <i data-feather="users"></i>
+                        <span>Data Meja Restawrant</span>
                     </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="{{ url('/admin/tables') }}">
+                                Daftar Meja di Restawrant
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/tables/create') }}">
+                                Tambah Data Meja Baru
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/dashboard/calendar')}}">
+                    <a class="sidebar-link sidebar-title" href="#">
                         <i data-feather="calendar"></i>
-                        <span>Kalender</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="#">
-                        <i data-feather="bookmark"></i>
-                        <span>Bookmark</span>
+                        <span>Daftar Reservasi</span>
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
-                            <a href="{{url('/dashboard/bookmarks')}}">
-                                Semua Bookmarks
+                            <a href="{{ url('/admin/reservations') }}">
+                                Semua Daftar Reservasi
                             </a>
                         </li>
                         <li>
-                            <a href="{{url('/dashboard/bookmarks/tambah-bookmarks')}}">
-                                Tambah Bookmarks Baru
+                            <a href="{{ url('/admin/reservations/create') }}">
+                                Tambah Jadwal Reservasi Baru
                             </a>
                         </li>
                     </ul>
-                </li>
-
-
-                <li class="sidebar-main-title">
-                    <div>
-                        <h6>Produktifitas</h6>
-                        <p>Whiteboard, Audio & Pomodoro</p>
-                    </div>
-                </li>
-
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/dashboard/whiteboard')}}">
-                        <i data-feather="clipboard"></i>
-                        <span>Whiteboard</span>
-                    </a>
-                </li>
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="#">
-                        <i data-feather="music"></i>
-                        <span>Audio Relaxation</span>
-                    </a>
-                    <ul class="sidebar-submenu">
-                        <li><a href="{{url('/dashboard/audio/moodly')}}">Moodly</a></li>
-                        <li><a href="{{url('/dashboard/audio/shhhnoise')}}">Shhhnoise</a></li>
-                        <li><a href="{{url('/dashboard/audio/poolsuite')}}">Poolsuite</a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="#">
-                        <i data-feather="clock"></i>
-                        <span>Pomodoro Timer</span>
-                    </a>
-                    <ul class="sidebar-submenu">
-                        <li><a href="{{url('/dashboard/pomodoro/pomofocus')}}">Pomofocus</a></li>
-                        <li><a href="{{url('/dashboard/pomodoro/lifeat')}}">Lifeat.io</a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="#">
-                        <i data-feather="airplay"></i>
-                        <span>Virtual Meeting</span>
-                    </a>
-                    <ul class="sidebar-submenu">
-                        <li><a href="{{url('/dashboard/virtual-meeting/skyoffice')}}">Skyoffice</a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-main-title">
-                    <div>
-                        <h6>Resources</h6>
-                        <p>Semua website yang membantumu</p>
-                    </div>
-                </li>
-
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/dashboard/journal')}}">
-                        <i data-feather="book-open"></i>
-                        <span>Journal</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/dashboard/e-book')}}">
-                        <i data-feather="book"></i>
-                        <span>E-Book</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-list invisible">
-                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/dashboard/e-book')}}">
-                        <i data-feather="book"></i>
-                        <span>E-Book</span>
-                    </a>
                 </li>
 
             </ul>

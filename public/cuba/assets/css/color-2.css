@@ -11,9 +11,9 @@
 
 
  */
-:root {
-  --theme-deafult: #7366ff;
-  --theme-secondary: #f73164; }
+ :root {
+    --theme-deafult: #FFC107;
+    --theme-secondary: #FFC107; }
 
 /**=====================
      Reset css start
@@ -24719,7 +24719,7 @@ body[class*='dark-'] .for-light {
     .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon div.sidebar-wrapper .sidebar-main .right-arrow {
       display: none; }
     .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon div.sidebar-wrapper .sidebar-main .sidebar-links {
-      height: calc(100vh - 115px);
+      /* height: calc(100vh - 115px); */
       left: -300px;
       z-index: 99;
       -webkit-transition: color 1s ease;

@@ -6,24 +6,24 @@
             <ul class="splide__list">
                 <li class="splide__slide">
                     <a href="{{ url('/menus') }}">
-                        <img src="{{ url('images/splide/hero-slide-1.png') }}" class="d-block w-100"
+                        <img src="{{ url('images/splide/landing-page/hero-slide-1.png') }}" class="d-block w-100"
                             style="border-radius:8px;">
                     </a>
                 </li>
                 <li class="splide__slide">
                     <a href="{{ url('/reservation/step-one') }}">
-                        <img src=" {{ url('images/splide/hero-slide-2.png') }}" class="d-block w-100"
+                        <img src=" {{ url('images/splide/landing-page/hero-slide-2.png') }}" class="d-block w-100"
                             style="border-radius:8px;">
                     </a>
                 </li>
                 <li class="splide__slide">
                     <a href="{{ url('/reservation/step-one') }}">
-                        <img src="{{ url('images/splide/hero-slide-3.png') }}" class="d-block w-100"
+                        <img src="{{ url('images/splide/landing-page/hero-slide-3.png') }}" class="d-block w-100"
                             style="border-radius:8px;">
                     </a>
                 </li>
                 <li class="splide__slide">
-                    <img src="{{ url('images/splide/hero-slide-4.png') }}" class="d-block w-100"
+                    <img src="{{ url('images/splide/landing-page/hero-slide-4.png') }}" class="d-block w-100"
                         style="border-radius:8px;">
                 </li>
             </ul>
