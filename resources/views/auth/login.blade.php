@@ -30,7 +30,7 @@
                         <form class="theme-form" method="POST" action="{{ route('login') }}">
                             @csrf
                             <h1>🍣</h1>
-                            <h4>Masuk untuk masuk dashboard</h4>
+                            <h4>Login untuk masuk dashboard</h4>
                             <p class="mb-2">Masukkan email & password kamu buat login</p>
 
                             @if ($errors->any())
