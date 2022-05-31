@@ -1,95 +1,155 @@
-<x-admin-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.backend.master')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-end m-2 p-2">
-                <a href="{{ route('admin.reservations.create') }}"
-                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">New Reservation</a>
+@section('title', 'Data Reservasi — Restawrant')
+@section('content')
+
+    @push('datatable-styles')
+        <link rel="stylesheet" type="text/css" href="{{ url('cuba/assets/css/vendors/scrollbar.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('cuba/assets/css/vendors/datatables.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('cuba/assets/css/vendors/datatable-extension.css') }}">
+    @endpush
+
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="card card-absolute mt-5 mt-md-4">
+                <div class="card-header bg-primary">
+                    <h5 class="text-white">📅 • Data Jadwal Reservasi</h5>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Dibawah ini adalah data kategori makanan dan minuman yang telah anda buat. <span
+                            class="d-none d-md-inline">
+                            Catatan dibawah juga bisa kamu edit dengan menekan logo
+                            pencil
+                            berwarna ungu dan hapus dengan menekan logo sampah berwarna merah.
+                            tambah
+                            kategori
+                            <a href="{{ url('/admin/reservations/create') }}">disini ⇾</a>
+                        </span>
+                    </p>
+                </div>
             </div>
-            <div class="flex flex-col">
-                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
-                        <div class="overflow-hidden shadow-md sm:rounded-lg">
-                            <table class="min-w-full">
-                                <thead class="bg-gray-50 dark:bg-gray-700">
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="dt-ext table-responsive">
+                            <table class="display" id="auto-fill">
+                                <thead>
                                     <tr>
-                                        <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            Name
-                                        </th>
-                                        <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            Email
-                                        </th>
-                                        <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            Date
-                                        </th>
-                                        <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            Table
-                                        </th>
-                                        <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            Guests
-                                        </th>
-                                        <th scope="col" class="relative py-3 px-6">
-                                            <span class="sr-only">Edit</span>
-                                        </th>
+                                        <th>Nama</th>
+                                        <th>Tanggal</th>
+                                        <th>Meja</th>
+                                        <th>Jumlah Tamu</th>
+                                        <th>Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($reservations as $reservation)
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                            <td
-                                                class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {{ $reservation->first_name }} {{ $reservation->last_name }}
-                                            </td>
-                                            <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                {{ $reservation->email }}
-                                            </td>
-                                            <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                {{ $reservation->res_date }}
-                                            </td>
-                                            <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                {{ $reservation->table->name }}
-                                            </td>
-                                            <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                {{ $reservation->guest_number }}
-                                            </td>
-                                            <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                <div class="flex space-x-2">
-                                                    <a href="{{ route('admin.reservations.edit', $reservation->id) }}"
-                                                        class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg  text-white">Edit</a>
-                                                    <form
-                                                        class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
-                                                        method="POST"
-                                                        action="{{ route('admin.reservations.destroy', $reservation->id) }}"
-                                                        onsubmit="return confirm('Are you sure?');">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit">Delete</button>
-                                                    </form>
+                                    @forelse ($reservations as $item)
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex py-1 align-items-center">
+                                                    <div class="avatars mr-2">
+                                                        <div class="avatar ratio">
+                                                            <img style="object-fit: cover;
+                                                                                                        width: 40px;
+                                                                                                        height: 40px;"
+                                                                class="b-r-8"
+                                                                src="https://ui-avatars.com/api/?background=4466f2&color=fff&name={{ $item->first_name }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-fill">
+                                                        <div class="font-weight-bold">{{ $item->first_name }}
+                                                            {{ $item->last_name }}</div>
+                                                        <div class="text-muted">
+                                                            <a href="#" class="text-reset">{{ $item->email }}</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                    @endforeach
+                                            <td>{{ $item->res_date }}</td>
+                                            <td>{{ $item->table->name }}</td>
+                                            <td>{{ $item->guest_number }}</td>
+                                            <td>
 
+                                                <a href="{{ route('admin.reservations.edit', $item->id) }}"
+                                                    class="btn btn-info px-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        class="icon icon-tabler icon-tabler-edit" width="16" height="16"
+                                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path
+                                                            d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3">
+                                                        </path>
+                                                        <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
+                                                        <line x1="16" y1="5" x2="19" y2="8"></line>
+                                                    </svg>
+                                                </a>
+                                                <form action="{{ route('admin.reservations.destroy', $item->id) }}"
+                                                    method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-danger px-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="icon icon-tabler icon-tabler-trash" width="16"
+                                                            height="16" viewBox="0 0 24 24" stroke-width="2"
+                                                            stroke="currentColor" fill="none" stroke-linecap="round"
+                                                            stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                            <line x1="4" y1="7" x2="20" y2="7"></line>
+                                                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                                        </svg>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                    @endforelse
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>Tanggal</th>
+                                        <th>Meja</th>
+                                        <th>Jumlah Tamu</th>
+                                        <th>Opsi</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</x-admin-layout>
+
+        @push('datatable-scripts')
+            <script src="{{ url('cuba/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.buttons.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/jszip.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/buttons.colVis.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/pdfmake.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/vfs_fonts.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.autoFill.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.select.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/buttons.bootstrap4.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/buttons.html5.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/buttons.print.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.bootstrap4.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.responsive.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/responsive.bootstrap4.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.keyTable.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.colReorder.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.fixedHeader.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.rowReorder.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/dataTables.scroller.min.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/datatable/datatable-extension/custom.js') }}"></script>
+            <script src="{{ url('cuba/assets/js/tooltip-init.js') }}"></script>
+        @endpush
+
+    @endsection
