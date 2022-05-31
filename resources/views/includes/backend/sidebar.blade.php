@@ -29,7 +29,7 @@
                 <li class="sidebar-main-title">
                     <div>
                         <h6>Kelola Kategori & Menu</h6>
-                        <p>Menu & Kategori</p>
+                        <p>Data Kategori & Menu</p>
                     </div>
                 </li>
 
@@ -74,8 +74,8 @@
 
                 <li class="sidebar-main-title">
                     <div>
-                        <h6>Kelola Reservasi & Meja</h6>
-                        <p>Todolist, Kalender & Bookmark</p>
+                        <h6>Kelola Meja & Reservasi</h6>
+                        <p>Data Meja & Reservasi</p>
                     </div>
                 </li>
 
