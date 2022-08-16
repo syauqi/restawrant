@@ -78,7 +78,7 @@
                             @forelse ($menus as $menu)
                                 <div class="swiper-slide">
                                     <div class="card">
-                                        <img src="{{ Storage::url($menu->image) }}"
+                                        <img src="{{ $menu->image }}"
                                             class="card-img-top card-img-top-landing-page" />
                                         <div class="card-body">
                                             <h5 class="card-title fw-bold"> {{ $menu->name }}</h5>
@@ -192,8 +192,8 @@
                 @forelse ($categories as $cat)
                     <div class="col-md-4 col-lg-3">
                         <div class="card card-in-home bg-warning text-white text-center">
-                            <img class="card-img-top card-img-top-category-landing-page"
-                                src="{{ Storage::url($cat->image) }}" alt="" srcset="">
+                            <img class="card-img-top card-img-top-category-landing-page" src="{{ $cat->image }}"
+                                alt="" srcset="">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold mt-1">{{ $cat->name }}</h5>
                                 <div class="category-card-description-wrapper">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CloudinaryStorage;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -39,12 +40,13 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-        $image = $request->file('image')->store('public/categories');
+        $image  = $request->file('image');
+        $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
 
         Category::create([
             'name' => $request->name,
             'description' => $request->description,
-            'image' => $image
+            'image' => $result
         ]);
 
         return to_route('admin.categories.index')->with('success', 'Category created successfully.');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CloudinaryStorage;
 use App\Http\Requests\MenuStoreRequest;
 use App\Models\Category;
 use App\Models\Menu;
@@ -41,12 +42,13 @@ class MenuController extends Controller
      */
     public function store(MenuStoreRequest $request)
     {
-        $image = $request->file('image')->store('public/menus');
+        $image  = $request->file('image');
+        $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
 
         $menu = Menu::create([
             'name' => $request->name,
             'description' => $request->description,
-            'image' => $image,
+            'image' => $result,
             'price' => $request->price
         ]);
 

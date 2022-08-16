@@ -33,8 +33,7 @@
                 @foreach ($categories as $category)
                     <div class="col-md-3">
                         <div class="card card-borderless-shadow card-min-height">
-                            <img src="{{ Storage::url($category->image) }}"
-                                class="card-img-top card-img-top-landing-page" />
+                            <img src="{{ $category->image }}" class="card-img-top card-img-top-landing-page" />
                             <div class="card-body">
                                 <h5 class="card-title fw-bold"> {{ $category->name }}</h5>
                                 <div class="category-card-description-wrapper">

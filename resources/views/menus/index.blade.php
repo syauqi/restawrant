@@ -63,7 +63,8 @@
                                         <li>
                                             <a href="#" class="link-light rounded">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="1" />
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="1" />
                                                     <label class="form-check-label" for="1">
                                                         Makanan
                                                     </label>
@@ -73,7 +74,8 @@
                                         <li>
                                             <a href="#" class="link-light rounded">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="2" />
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="2" />
                                                     <label class="form-check-label" for="2">
                                                         Minuman
                                                     </label>
@@ -83,7 +85,8 @@
                                         <li>
                                             <a href="#" class="link-light rounded">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="3" />
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="3" />
                                                     <label class="form-check-label" for="3">
                                                         Dessert
                                                     </label>
@@ -93,7 +96,8 @@
                                         <li>
                                             <a href="#" class="link-light rounded">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="4" />
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="4" />
                                                     <label class="form-check-label" for="4">
                                                         Seblak
                                                     </label>
@@ -103,7 +107,8 @@
                                         <li>
                                             <a href="#" class="link-light rounded">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="5" />
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="5" />
                                                     <label class="form-check-label" for="5">
                                                         Snack
                                                     </label>
@@ -113,7 +118,8 @@
                                         <li>
                                             <a href="#" class="link-light rounded">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="6" />
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="6" />
                                                     <label class="form-check-label" for="6">
                                                         Cocktail
                                                     </label>
@@ -175,8 +181,7 @@
                         @foreach ($menus as $menu)
                             <div class="col-md-4">
                                 <div class="card card-borderless-shadow card-min-height">
-                                    <img src="{{ Storage::url($menu->image) }}"
-                                        class="card-img-top card-img-top-menus" />
+                                    <img src="{{ $menu->image }}" class="card-img-top card-img-top-menus" />
                                     <div class="card-body">
                                         <h5 class="card-title fw-bold"> {{ $menu->name }}</h5>
                                         <div class="category-card-description-wrapper">
