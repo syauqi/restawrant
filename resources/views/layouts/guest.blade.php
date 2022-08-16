@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="id">
 
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,8 @@
     <title>Restawrant — Harga Kaki Lima Rasa Kaki Lima!</title>
 
     <meta name="title" content="Restawrant — Harga Kaki Lima Rasa Kaki Lima!">
-    <meta name="description" content="  Restawrant adalah restoran yang menyediakan berbagai macam kategori makanan mulai dari minuman,
+    <meta name="description"
+        content="Restawrant adalah restoran yang menyediakan berbagai macam kategori makanan mulai dari minuman,
                         dessert dan lain lain dengan harga kaki lima namun rasanya bintang lima. Outlet kita selalu
                         rame, jadi jangan lupa reservasi ya!">
     <link rel="icon" href="{{ url('cuba/assets/images/favicon.ico') }}" type="image/x-icon">
@@ -35,19 +36,19 @@
     <!-- ------------------------ Mobile Header Section ------------------------ -->
     <nav class="navbar navbar-light bg-white d-block d-sm-block d-md-block d-lg-none py-3 border-bottom">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">🍣 Restawrant</a>
+            <a class="navbar-brand fw-bold" href="{{ url('/') }}">🍣 Restawrant</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
+                <div class="offcanvas-header mt-3">
                     <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">
                         🍣 Restawrant
-                    </h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
+                        </h4>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body" style="margin-top: -24px">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -121,13 +122,14 @@
 
     <header class="py-3 mb-4 border-bottom d-none d-sm-none d-md-none d-lg-block bg-white sticky-top">
         <div class="container d-flex flex-wrap justify-content-center">
-            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+            <a href="/"
+                class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
                 <span class="fs-3 fw-bold">🍣 Restawrant</span>
             </a>
             <button class="btn btn-warning text-white me-2 px-5 fw-500"
-                onclick="location.href='http://127.0.0.1:8000/reservation/step-one'" type="button"> <i
-                    class="fas fa-calendar-plus"></i> &nbsp; &nbsp; Buat
-                Reservasi</button>
+                onclick="window.location='{{ url('reservation/step-one') }}'" type="button"> <i
+                    class="fas fa-calendar-plus"></i>
+                &nbsp; &nbsp; Buat Reservasi</button>
         </div>
     </header>
 

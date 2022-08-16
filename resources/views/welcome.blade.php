@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <!-- ------------------------ Splide Hero Section ------------------------ -->
-    <section class="splide my-4" aria-label="Splide Basic HTML Example">
+    <section class="splide my-4">
         <div class="splide__track">
             <ul class="splide__list">
                 <li class="splide__slide">
